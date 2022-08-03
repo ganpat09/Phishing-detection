@@ -9,7 +9,7 @@ import numpy as np
 import os
 import sys
 from phishing.util.util import write_yaml_file, read_yaml_file, load_object,load_data
-from phishing.entity.model_factory import evaluate_regression_model
+from phishing.entity.model_factory import evaluate_classification_model
 
 
 
@@ -126,7 +126,7 @@ class ModelEvaluation:
 
             model_list = [model, trained_model_object]
 
-            metric_info_artifact = evaluate_regression_model(model_list=model_list,
+            metric_info_artifact = evaluate_classification_model(model_list=model_list,
                                                                X_train=train_dataframe,
                                                                y_train=train_target_arr,
                                                                X_test=test_dataframe,

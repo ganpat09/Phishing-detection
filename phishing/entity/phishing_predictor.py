@@ -178,24 +178,24 @@ class PhisingUrlData:
                 print("dir",directory,path)
                 
 
-                directory_url_data["qty_dot_directory"] =  directory.count(".") if paths  else 0
-                directory_url_data["qty_hyphen_directory"] = directory.count("-") if paths  else 0
-                directory_url_data["qty_underline_directory"] = directory.count("_") if paths  else 0
-                directory_url_data["qty_slash_directory"] = directory.count("/") if paths  else 0
-                directory_url_data["qty_questionmark_directory"] = directory.count("?") if paths  else 0
-                directory_url_data["qty_equal_directory"] = directory.count("=") if paths  else 0
-                directory_url_data["qty_at_directory"] = directory.count("@") if paths  else 0
-                directory_url_data["qty_and_directory"] = directory.count("&") if paths  else 0
-                directory_url_data["qty_exclamation_directory"] = directory.count("!") if paths  else 0
-                directory_url_data["qty_space_directory"] = directory.count(" ") if paths  else 0
-                directory_url_data["qty_tilde_directory"] = directory.count("~") if paths  else 0
-                directory_url_data["qty_comma_directory"] = directory.count(",") if paths  else 0
-                directory_url_data["qty_plus_directory"] = directory.count("+") if paths  else 0
-                directory_url_data["qty_asterisk_directory"] = directory.count("*") if paths  else 0
-                directory_url_data["qty_hashtag_directory"] = directory.count("#") if paths  else 0
-                directory_url_data["qty_dollar_directory"] = directory.count("$") if paths  else 0
-                directory_url_data["qty_percent_directory"] = directory.count("%") if paths  else 0
-                directory_url_data["directory_length"] = len(directory) if paths  else 0
+                directory_url_data["qty_dot_directory"] =  directory.count(".") if paths  else -1
+                directory_url_data["qty_hyphen_directory"] = directory.count("-") if paths  else -1
+                directory_url_data["qty_underline_directory"] = directory.count("_") if paths  else -1
+                directory_url_data["qty_slash_directory"] = directory.count("/") if paths  else -1
+                directory_url_data["qty_questionmark_directory"] = directory.count("?") if paths  else -1
+                directory_url_data["qty_equal_directory"] = directory.count("=") if paths  else -1
+                directory_url_data["qty_at_directory"] = directory.count("@") if paths  else -1
+                directory_url_data["qty_and_directory"] = directory.count("&") if paths  else -1
+                directory_url_data["qty_exclamation_directory"] = directory.count("!") if paths  else -1
+                directory_url_data["qty_space_directory"] = directory.count(" ") if paths  else -1
+                directory_url_data["qty_tilde_directory"] = directory.count("~") if paths  else -1
+                directory_url_data["qty_comma_directory"] = directory.count(",") if paths  else -1
+                directory_url_data["qty_plus_directory"] = directory.count("+") if paths  else -1
+                directory_url_data["qty_asterisk_directory"] = directory.count("*") if paths  else -1
+                directory_url_data["qty_hashtag_directory"] = directory.count("#") if paths  else -1
+                directory_url_data["qty_dollar_directory"] = directory.count("$") if paths  else -1
+                directory_url_data["qty_percent_directory"] = directory.count("%") if paths  else -1
+                directory_url_data["directory_length"] = len(directory) if paths  else -1
 
             return directory_url_data
             
@@ -213,23 +213,23 @@ class PhisingUrlData:
                 file = paths.groups()[0] if paths  else ""
                 print("file",file,path)
                 
-                file_url_data["qty_dot_file"] = file.count(".") if paths  else 0
-                file_url_data["qty_hyphen_file"] = file.count("-") if paths  else 0
-                file_url_data["qty_underline_file"] = file.count("_") if paths  else 0
-                file_url_data["qty_slash_file"] = file.count("/") if paths  else 0
-                file_url_data["qty_questionmark_file"] = file.count("?") if paths  else 0
-                file_url_data["qty_equal_file"] = file.count("=") if paths  else 0
-                file_url_data["qty_at_file"] = file.count("@") if paths  else 0
-                file_url_data["qty_and_file"] = file.count("&") if paths  else 0
-                file_url_data["qty_exclamation_file"] = file.count("!") if paths  else 0
-                file_url_data["qty_space_file"] = file.count(" ") if paths  else 0
-                file_url_data["qty_tilde_file"] = file.count("~") if paths  else 0
-                file_url_data["qty_comma_file"] = file.count(",") if paths  else 0
-                file_url_data["qty_plus_file"] = file.count("+") if paths  else 0
-                file_url_data["qty_asterisk_file"] = file.count("*") if paths  else 0
-                file_url_data["qty_hashtag_file"] = file.count("#") if paths  else 0
-                file_url_data["qty_dollar_file"] = file.count("$") if paths  else 0
-                file_url_data["qty_percent_file"] = file.count("%") if paths  else 0
+                file_url_data["qty_dot_file"] = file.count(".") if paths  else -1
+                file_url_data["qty_hyphen_file"] = file.count("-") if paths  else -1
+                file_url_data["qty_underline_file"] = file.count("_") if paths  else -1
+                file_url_data["qty_slash_file"] = file.count("/") if paths  else -1
+                file_url_data["qty_questionmark_file"] = file.count("?") if paths  else -1
+                file_url_data["qty_equal_file"] = file.count("=") if paths  else -1
+                file_url_data["qty_at_file"] = file.count("@") if paths  else -1
+                file_url_data["qty_and_file"] = file.count("&") if paths  else -1
+                file_url_data["qty_exclamation_file"] = file.count("!") if paths  else -1
+                file_url_data["qty_space_file"] = file.count(" ") if paths  else -1
+                file_url_data["qty_tilde_file"] = file.count("~") if paths  else -1
+                file_url_data["qty_comma_file"] = file.count(",") if paths  else -1
+                file_url_data["qty_plus_file"] = file.count("+") if paths  else -1
+                file_url_data["qty_asterisk_file"] = file.count("*") if paths  else -1
+                file_url_data["qty_hashtag_file"] = file.count("#") if paths  else -1
+                file_url_data["qty_dollar_file"] = file.count("$") if paths  else -1
+                file_url_data["qty_percent_file"] = file.count("%") if paths  else -1
                 file_url_data["file_length"] = len(file)
 
             return file_url_data    
@@ -245,27 +245,27 @@ class PhisingUrlData:
             
             params_url_data = {}
 
-            params_url_data["qty_dot_params"] = params.count(".")
-            params_url_data["qty_hyphen_params"] = params.count("-")
-            params_url_data["qty_underline_params"] = params.count("_")
-            params_url_data["qty_slash_params"] = params.count("/")
-            params_url_data["qty_questionmark_params"] = params.count("?")
-            params_url_data["qty_equal_params"] = params.count("=")
-            params_url_data["qty_at_params"] = params.count("@")
-            params_url_data["qty_and_params"] = params.count("&")
-            params_url_data["qty_exclamation_params"] = params.count("!")
-            params_url_data["qty_space_params"] = params.count(" ")
-            params_url_data["qty_tilde_params"] = params.count("~")
-            params_url_data["qty_comma_params"] = params.count(",")
-            params_url_data["qty_plus_params"] = params.count("+")
-            params_url_data["qty_asterisk_params"] = params.count("*")
-            params_url_data["qty_hashtag_params"] = params.count("#")
-            params_url_data["qty_dollar_params"] = params.count("$")
-            params_url_data["qty_percent_params"] = params.count("%")
-            params_url_data["params_length"] = len(params)
+            params_url_data["qty_dot_params"] = params.count(".") if len(params) > 0 else -1
+            params_url_data["qty_hyphen_params"] = params.count("-") if len(params) > 0 else -1
+            params_url_data["qty_underline_params"] = params.count("_") if len(params) > 0 else -1
+            params_url_data["qty_slash_params"] = params.count("/")  if len(params) > 0 else -1
+            params_url_data["qty_questionmark_params"] = params.count("?")  if len(params) > 0 else -1
+            params_url_data["qty_equal_params"] = params.count("=")  if len(params) > 0 else -1
+            params_url_data["qty_at_params"] = params.count("@")  if len(params) > 0 else -1
+            params_url_data["qty_and_params"] = params.count("&")  if len(params) > 0 else -1
+            params_url_data["qty_exclamation_params"] = params.count("!")  if len(params) > 0 else -1
+            params_url_data["qty_space_params"] = params.count(" ") if len(params) > 0 else -1
+            params_url_data["qty_tilde_params"] = params.count("~") if len(params) > 0 else -1
+            params_url_data["qty_comma_params"] = params.count(",") if len(params) > 0 else -1
+            params_url_data["qty_plus_params"] = params.count("+") if len(params) > 0 else -1
+            params_url_data["qty_asterisk_params"] = params.count("*") if len(params) > 0 else -1
+            params_url_data["qty_hashtag_params"] = params.count("#") if len(params) > 0 else -1
+            params_url_data["qty_dollar_params"] = params.count("$") if len(params) > 0 else -1
+            params_url_data["qty_percent_params"] = params.count("%") if len(params) > 0 else -1
+            params_url_data["params_length"] = len(params) if len(params) > 0 else -1
             # tld present parms 
             params_url_data["tld_present_params"] = -1
-            params_url_data["qty_params"] = len(parse_qs(params))
+            params_url_data["qty_params"] = len(parse_qs(params))  if len(params) > 0 else -1
 
             return params_url_data    
             
@@ -312,7 +312,7 @@ class PhisingUrlData:
             roundtrip = time.time() - start
             return round(roundtrip,4)
         except Exception as e:
-            raise PhishingException(e,sys)  
+            return -1
 
 
     def __get_domain_spf(self,domain:string)-> int:
