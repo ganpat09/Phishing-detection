@@ -1,0 +1,20 @@
+numpy
+Flask
+gunicorn
+sklearn
+pandas
+PyYAML
+evidently
+dill
+matplotlib
+imbalanced-learn
+validators
+tld
+dnspython
+cymruwhois
+python-whois
+beautifulsoup4
+openpyxl
+xlrd
+xgboost
+-e .
