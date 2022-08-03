@@ -258,4 +258,4 @@ def get_df_extract_urls(urls)->pd.DataFrame:
     return pd.concat(li), lix       
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
