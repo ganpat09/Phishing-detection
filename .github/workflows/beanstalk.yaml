@@ -42,6 +42,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: Phishing detect
         environment_name: Phishingdetect-env
-        version_label: ${{ github.run_number }}
+        version_label: Sample Application
         region: ap-south-1
         deployment_package: deploy.zip
