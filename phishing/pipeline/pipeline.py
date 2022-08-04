@@ -31,7 +31,7 @@ Experiment = namedtuple("Experiment", ["experiment_id", "initialization_timestam
 
 
 
-class Pipeline(Thread):
+class Pipeline():
     experiment: Experiment = Experiment(*([None] * 11))
     experiment_file_path = None
 

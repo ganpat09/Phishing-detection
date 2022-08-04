@@ -122,17 +122,30 @@ def predict():
             return 
         
 
-        phising_data = PhisingUrlData(check_url = url)
-        phishing_df = phising_data.get_phishing_input_data_frame()
-        phishing_predictor = HousingPredictor(model_dir=MODEL_DIR)
-        phishing_value = phishing_predictor.predict(X=phishing_df)
-        #print(url,"is phissing", median_phishing_value)
-        
-        context = {
-            PHISHING_DATA_KEY: phising_data.get_url_extract_data_as_dict(),
-            PHISHING_VALUE_KEY: phishing_value,
-        }
-        return render_template('predict.html', context=context)
+        try:
+                phising_data = PhisingUrlData(check_url = url)
+                phishing_df = phising_data.get_phishing_input_data_frame()
+                phishing_predictor = HousingPredictor(model_dir=MODEL_DIR)
+                phishing_value = phishing_predictor.predict(X=phishing_df)
+                #print(url,"is phissing", median_phishing_value)
+
+                if phishing_value > 0:
+                    phishing_value = "This site will Phishing Site"
+                else:
+                    phishing_value = "This site will Legitimate Site"
+                # phising_data.get_url_extract_data_as_dict()
+                context = {
+                    PHISHING_DATA_KEY: {} ,
+                    PHISHING_VALUE_KEY: phishing_value,
+                }
+                return render_template('predict.html', context=context)
+
+        except Exception as e:
+            context = {
+            PHISHING_DATA_KEY: {} ,
+            PHISHING_VALUE_KEY: "Some error in connection",
+            }
+            return render_template('predict.html', context=context) 
     return render_template("predict.html", context=context)
 
 

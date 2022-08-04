@@ -35,41 +35,10 @@
               Phishing Urls info 
             </div>
             <div class="card-body">
-        {% if context['phishing_data'] is not none %}
-        <table class="table table-striped">
-            <caption>Phishing Detetctor </caption>
-            <tr>
-                <th>Input Feature</th>
-                <th>Feature Value</th>
-
-            </tr>
-            {% for column,value in context['phishing_data'].items() %}
-
-
-
-            <tr>
-                <td>{{column}}</td>
-                <td>{{value[0]}}</td>
-            </tr>
-
-            {% endfor %}
-            <tr>
-
-                <td>phishing </td>
-                <td>
-                    {{ context['phishing'] }}
-                </td>
-            </tr>
-        </table>
-
-        {% else %}
+                
+              <h5 class="card-title"> {{ context['phishing_value'] }}</h5>
        
-              <h5 class="card-title">Submit Form</h5>
-              <p class="card-text">Kindly provide fully url to detect phishing</p>
-            
-         
-
-        {% endif %}
+        
         Go to <a href="/" class="btn btn-primary">Home</a>
     </div>
 </div>
