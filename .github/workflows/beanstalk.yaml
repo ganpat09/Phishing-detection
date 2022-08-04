@@ -3,8 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  
 
 jobs:
 
@@ -41,8 +40,8 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: Phising_detector
-        environment_name: Phisingdetector-env
+        application_name: Phishing
+        environment_name: Phishing-env
         version_label: ${{ github.run_number }}
         region: ap-south-1
         deployment_package: deploy.zip
