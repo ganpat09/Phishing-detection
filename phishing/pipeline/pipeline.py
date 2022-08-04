@@ -31,7 +31,7 @@ Experiment = namedtuple("Experiment", ["experiment_id", "initialization_timestam
 
 
 
-class Pipeline():
+class Pipeline(Thread):
     experiment: Experiment = Experiment(*([None] * 11))
     experiment_file_path = None
 
@@ -39,7 +39,7 @@ class Pipeline():
         try:
             os.makedirs(config.training_pipeline_config.artifact_dir, exist_ok=True)
             Pipeline.experiment_file_path=os.path.join(config.training_pipeline_config.artifact_dir,EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME)
-           # super().__init__(daemon=False, name="pipeline")
+            super().__init__(daemon=False, name="pipeline")
             self.config = config
         except Exception as e:
             raise PhishingException(e, sys) from e

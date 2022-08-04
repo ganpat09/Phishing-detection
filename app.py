@@ -98,7 +98,7 @@ def train():
     try:
         message = ""
         pipeline = Pipeline(config=Configuartion(current_time_stamp=get_current_time_stamp()))
-        pipeline.run()
+        #pipeline.run()
         if not Pipeline.experiment.running_status:
             message = "Training started."
             pipeline.start()
