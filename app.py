@@ -95,19 +95,23 @@ def view_experiment_history():
 
 @app.route('/train', methods=['GET', 'POST'])
 def train():
-    message = ""
-    pipeline = Pipeline(config=Configuartion(current_time_stamp=get_current_time_stamp()))
-    pipeline.run()
-    if not Pipeline.experiment.running_status:
-        message = "Training started."
-        pipeline.start()
-    else:
-        message = "Training is already in progress."
-    context = {
-        "experiment": pipeline.get_experiments_status().to_html(classes='table table-striped col-12'),
-        "message": message
-    }
-    return render_template('train.html', context=context)
+    try:
+        message = ""
+        pipeline = Pipeline(config=Configuartion(current_time_stamp=get_current_time_stamp()))
+        pipeline.run()
+        if not Pipeline.experiment.running_status:
+            message = "Training started."
+            pipeline.start()
+        else:
+            message = "Training is already in progress."
+        context = {
+            "experiment": pipeline.get_experiments_status().to_html(classes='table table-striped col-12'),
+            "message": message
+        }
+        return render_template('train.html', context=context)
+    except Exception as e:
+            logging.exception(e)
+            return e
 
 
 @app.route('/predict', methods=['GET', 'POST'])
