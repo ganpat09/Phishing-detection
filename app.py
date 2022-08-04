@@ -139,7 +139,7 @@ def predict():
                 #print(url,"is phissing", median_phishing_value)
 
                 if phishing_value > 0:
-                    phishing_value = "This site will Phishing Site"
+                    phishing_value = "This site will Phishing Site "
                 else:
                     phishing_value = "This site will Legitimate Site"
                 # phising_data.get_url_extract_data_as_dict()
