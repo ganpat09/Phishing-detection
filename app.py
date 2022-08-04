@@ -141,11 +141,11 @@ def predict():
                 return render_template('predict.html', context=context)
 
         except Exception as e:
-            logging.info(e)
+            logging.exception(e)
             
             context = {
             PHISHING_DATA_KEY: {} ,
-            PHISHING_VALUE_KEY: "Some error in connection",
+            PHISHING_VALUE_KEY: e,
             }
             return render_template('predict.html', context=context) 
     return render_template("predict.html", context=context)
