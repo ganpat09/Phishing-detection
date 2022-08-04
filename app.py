@@ -111,7 +111,11 @@ def train():
         return render_template('train.html', context=context)
     except Exception as e:
             logging.exception(e)
-            return e
+            context = {
+            "experiment": "<div></div>",
+            "message": e
+        }
+            return render_template('train.html', context=context)
 
 
 @app.route('/predict', methods=['GET', 'POST'])
