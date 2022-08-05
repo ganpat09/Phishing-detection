@@ -66,14 +66,18 @@ table-layout: fixed;
                     <li class="nav-item">
                         <a class="nav-link {% if 'log' in request.path %} active {% endif %}" href="/logs">View Logs</a>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'artifact' in request.path %} active {% endif %}" href="/artifact">View Artifacts</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if 'saved_models' in request.path %} active {% endif %}" href="/saved_models">View Trained Model</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if 'predict' in request.path %} active {% endif %}" href="/predict">Detect Phishing Url</a>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'predict' in request.path %} active {% endif %}" href="/view_experiment_hist">Experiment History</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -89,15 +93,24 @@ table-layout: fixed;
                 <li class="list-group-item py-1  {% if 'log' in request.path %} active {% endif %}">
                     <a  style=" text-decoration: none;color:black" href="/logs">View Logs</a>
                 </li>
-                
+                <li class="list-group-item py-1 {% if 'artifact' in request.path %} active {% endif %}">
+                    <a style=" text-decoration: none;color:rgb(0, 0, 0)" href="/artifact">View Artifacts</a>
+                </li>
                 <li class="list-group-item py-1 {% if 'saved_models' in request.path %} active {% endif %}">
                     <a style=" text-decoration: none;color:black" href="/saved_models">View Trained Model</a>
                 </li>
                 <li class="list-group-item py-1 {% if 'predict' in request.path %} active {% endif %}">
                     <a style=" text-decoration: none;color:black" href="/predict">Detect Phishing Url</a>
                 </li>
-               
+                <li class="list-group-item py-1 {% if 'train' in request.path %} active {% endif %}">
+                    <a style=" text-decoration: none;color:black" href="/train">Train phishing detection</a>
+                </li>
                 
+
+
+                <li class="list-group-item py-1 {% if 'update_model_config' in request.path %} active {% endif %}">
+                    <a style=" text-decoration: none;color:black" href="/update_model_config">Update Model Config</a>
+                </li>
             </ul>
 
         </div>

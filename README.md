@@ -1,5 +1,5 @@
 Application url:
-[PhisingDetector](https://ml-phishing-detection.herokuapp.com/)
+[PhisingDetector](http://phis-tmicro-env.eba-vvaq692t.ap-south-1.elasticbeanstalk.com/)
 
 
 

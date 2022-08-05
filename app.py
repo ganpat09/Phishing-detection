@@ -43,6 +43,10 @@ app.config['UPLOAD_FOLDER'] = STATIC_PATH
 @app.route('/artifact', defaults={'req_path': 'phishing_detection'})
 @app.route('/artifact/<path:req_path>')
 def render_artifact_dir(req_path):
+    """
+    Not for low instance resource
+    
+    """
     os.makedirs("phishing_detection", exist_ok=True)
     # Joining the base and the requested path
     print(f"req_path: {req_path}")
@@ -85,6 +89,10 @@ def index():
 
 @app.route('/view_experiment_hist', methods=['GET', 'POST'])
 def view_experiment_history():
+    """
+    Not for low instance resource
+    
+    """
     experiment_df = Pipeline.get_experiments_status()
     
     context = {
@@ -95,6 +103,10 @@ def view_experiment_history():
 
 @app.route('/train', methods=['GET', 'POST'])
 def train():
+    """
+    Not for low instance resource
+
+    """
     try:
         message = ""
         pipeline = Pipeline(config=Configuartion(current_time_stamp=get_current_time_stamp()))
@@ -189,6 +201,10 @@ def saved_models_dir(req_path):
 
 @app.route("/update_model_config", methods=['GET', 'POST'])
 def update_model_config():
+    """
+    Not for low instance resource
+    
+    """
     try:
         if request.method == 'POST':
             model_config = request.form['new_model_config']
@@ -209,6 +225,7 @@ def update_model_config():
 @app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'})
 @app.route(f'/{LOG_FOLDER_NAME}/<path:req_path>')
 def render_log_dir(req_path):
+
     os.makedirs(LOG_FOLDER_NAME, exist_ok=True)
     # Joining the base and the requested path
     logging.info(f"req_path: {req_path}")
@@ -237,6 +254,10 @@ def render_log_dir(req_path):
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
+    """
+    Not for low instance resource
+    
+    """
     if request.method == 'POST':
         print(request.files['file'])
         f = request.files['file']
