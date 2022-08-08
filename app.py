@@ -296,7 +296,7 @@ def get_df_extract_urls(urls)->pd.DataFrame:
             phising_df = phising_data.get_phishing_input_data_frame()
             li.append(phising_df)
             lix.append(id)
-            #logger("######################",id)
+            print("######################",id)
         except Exception as e:
             #print(e)
             pass

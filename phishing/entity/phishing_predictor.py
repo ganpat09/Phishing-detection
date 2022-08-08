@@ -155,7 +155,7 @@ class PhisingUrlData:
             domain_url_data["qty_vowels_domain"] = len(vowels)
             domain_url_data["domain_length"] = len(domain)
             domain_url_data["domain_in_ip"] = 1 if isOnlyIP else 0
-            domain_url_data["server_client_domain"] = None
+            domain_url_data["server_client_domain"] = 0
 
 
             return domain_url_data
