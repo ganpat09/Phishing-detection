@@ -1,5 +1,5 @@
 Application url:
-[PhisingDetector](http://phis-tmicro-env.eba-vvaq692t.ap-south-1.elasticbeanstalk.com/)
+[PhisingDetector](http://phis-env.eba-vvaq692t.ap-south-1.elasticbeanstalk.com/)
 
 
 
