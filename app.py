@@ -12,7 +12,7 @@ import json
 from phishing.config.configuration import Configuartion
 from phishing.constant import CONFIG_DIR, STATIC_DIR, get_current_time_stamp
 from phishing.pipeline.pipeline import Pipeline
-from phishing.entity.phishing_predictor import HousingPredictor, PhisingUrlData
+from phishing.entity.phishing_predictor import PhishingPredictor, PhisingUrlData
 from flask import send_file, abort, render_template
 from sklearn.metrics import classification_report
 
@@ -146,7 +146,7 @@ def predict():
         try:
                 phising_data = PhisingUrlData(check_url = url)
                 phishing_df = phising_data.get_phishing_input_data_frame()
-                phishing_predictor = HousingPredictor(model_dir=MODEL_DIR)
+                phishing_predictor = PhishingPredictor(model_dir=MODEL_DIR)
                 phishing_value = phishing_predictor.predict(X=phishing_df)
                 #print(url,"is phissing", median_phishing_value)
 
@@ -267,7 +267,7 @@ def upload_file():
         
         phishing_df, y_pred_ix = get_df_extract_urls(data_xls['url'])
         
-        phishing_predictor = HousingPredictor(model_dir=MODEL_DIR)
+        phishing_predictor = PhishingPredictor(model_dir=MODEL_DIR)
         y_pred = phishing_predictor.predict(X=phishing_df)
 
 
@@ -300,7 +300,68 @@ def get_df_extract_urls(urls)->pd.DataFrame:
         except Exception as e:
             #print(e)
             pass
-    return pd.concat(li), lix       
+    return pd.concat(li), lix     
+
+
+@app.route("/uploadx", methods=['GET', 'POST'])
+def upload_filex():
+    """
+    Not for low instance resource
+    
+    """
+    if request.method == 'POST':
+        print(request.files['file'])
+        f = request.files['file']
+        data_xls = pd.read_excel(f, engine='openpyxl')[0:200]
+
+        data = pd.read_excel(f, engine='openpyxl')
+
+       # data = collect_data(data_xls)
+
+        phishing_predictor = PhishingPredictor(model_dir=MODEL_DIR)
+        y_pred = phishing_predictor.predict(X=data[data.columns[:-2]])
+
+        data["predict"] = y_pred
+        
+        print(classification_report(data["Labels"], y_pred))
+
+        return data.to_html()
+    return '''
+    <!doctype html>
+    <title>Upload an excel file</title>
+    <h1>Excel file upload (csv, tsv, csvz, tsvz only)</h1>
+    <form action="" method=post enctype=multipart/form-data>
+    <p><input type=file name=file><input type=submit value=Upload>
+    </form>
+    '''
+
+
+def collect_data(dfs:pd.DataFrame)->pd.DataFrame:
+
+  
+    not_predict = 0
+    li = []
+    
+    for index, row in dfs.iterrows():
+        try:
+            phising_data = PhisingUrlData(check_url = row['url'])
+            phishing_df = phising_data.get_phishing_input_data_frame()
+            phishing_df["url"] = row["url"]
+            phishing_df["Labels"] = row['Labels']
+            
+            li.append(phishing_df)
+
+            print("INDEX-------------------->",index)
+            
+        except Exception as e:
+            
+            not_predict += 1
+
+  
+    pd.concat(li).to_excel('predict_data_test.xlsx', sheet_name='predict_data_test')        
+    print("not_predict", not_predict)
+
+    return pd.concat(li) 
 
 if __name__ == "__main__":
     app.run(debug=True)

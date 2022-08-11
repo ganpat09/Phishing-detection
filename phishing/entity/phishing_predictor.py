@@ -488,7 +488,7 @@ class PhisingUrlData:
 
 
 
-class HousingPredictor:
+class PhishingPredictor:
 
     def __init__(self, model_dir: str):
         try:

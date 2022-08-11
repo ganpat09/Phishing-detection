@@ -277,11 +277,11 @@ class DataTransformation:
                
                 
                 
-               ('imputer', SimpleImputer(strategy="median")),
+               #('imputer', SimpleImputer(strategy="median",missing_values=-1)),
                 ('scaler', PowerTransformer()),
                 
                 ('remove_high_correlated_feature', MyDecorrelator(
-                    threshold = 0.97
+                    threshold = 0.96
                 )),
             ]
             )
